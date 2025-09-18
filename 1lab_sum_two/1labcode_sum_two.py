@@ -5,6 +5,8 @@ def sum_two(nums, target):
         raise TypeError("Таргет равен нулю")
     if int(target) != target:
         raise TypeError("Таргет - нецелое число")
+    if str(target) == target:
+        raise TypeError("Таргет - строчное число")
     for x in nums:
         if int(x) != x:
             raise TypeError("В списке есть нецелое число")
