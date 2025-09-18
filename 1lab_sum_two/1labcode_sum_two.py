@@ -16,6 +16,6 @@ def sum_two(nums, target):
             if nums[i] + nums[j] == target:
                 res.append([i, j])
                 return res[0] # берем только пару с наименьшими индексами
-    raise TypeError("Нету суммы таргета")
+    return None
 
 
