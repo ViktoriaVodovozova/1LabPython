@@ -38,10 +38,9 @@ class Testsum_two(unittest.TestCase):
         with self.assertRaises(TypeError):
             sum_two([1, 3, "8"], 4)
 
-    def test_no_sum(self):
+    def test_str_in_target(self):
         with self.assertRaises(TypeError):
-            sum_two([1, 15, 9, 37], 17)
-
+            sum_two([1, 3, 8], "4")
 
 if __name__ == "__main__":
     unittest.main()
