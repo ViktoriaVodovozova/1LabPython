@@ -1,2 +1,0 @@
-from .author import Author
-
