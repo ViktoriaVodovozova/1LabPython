@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="author-info">
+        <h2>Информация об авторе</h2>
+        <div class="author-details">
+            <p><strong>Имя:</strong> {{ author.name }}</p>
+            <p><strong>Группа:</strong> {{ author.group }}</p>
+            <p><strong>Приложение:</strong> {{ myapp.name }} v{{ myapp.version }}</p>
+        </div>
+    </section>
+{% endblock %}

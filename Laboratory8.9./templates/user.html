@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="user-detail">
+        <h2>Пользователь: {{ user.name }}</h2>
+
+        <div class="user-info">
+            <p><strong>ID:</strong> {{ user.id }}</p>
+            <p><strong>Имя:</strong> {{ user.name }}</p>
+        </div>
+
+        <div class="subscriptions">
+            <h3>Подписки на валюты</h3>
+
+            {% if subscriptions %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Цифровой код</th>
+                            <th>Символьный код</th>
+                            <th>Название</th>
+                            <th>Номинал</th>
+                            <th>Текущий курс</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for currency in subscriptions %}
+                            <tr>
+                                <td>{{ currency.num_code }}</td>
+                                <td>{{ currency.char_code }}</td>
+                                <td>{{ currency.name }}</td>
+                                <td>{{ currency.nominal }}</td>
+                                <td>{{ "%.4f"|format(currency.value) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="chart-container">
+                    <h4></h4>
+                    <p></p>
+                    <div id="currency-chart" style="width: 100%; height: 400px;">
+                        <!-- Здесь будет график с использованием Chart.js или аналогичной библиотеки -->
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            {% else %}
+                <p>У пользователя нет подписок на валюты</p>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <a href="/users">Вернуться к списку пользователей</a>
+        </div>
+    </section>
+{% endblock %}
